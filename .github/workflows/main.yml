@@ -22,5 +22,5 @@ jobs:
         CHATID: -1002287610863
         BOT_TOKEN: 7868194496:AAGY7WwRRbeCOPYOnczoCPh2psC43Q0F3JI
       run: |
-        chmod +x mido.sh
-        bash mido.sh
+        chmod +x build.sh
+        bash build.sh
