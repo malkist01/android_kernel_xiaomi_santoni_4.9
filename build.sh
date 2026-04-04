@@ -213,17 +213,6 @@ function upload_zip() {
     curl -s -X POST "https://api.telegram.org/bot${BOT_TOKEN}/sendDocument" -F document=@"$ZIPNAME" -F chat_id="$CHAT_ID" > /dev/null
 }
 
-function upload_fullbuild_log() {
-    curl -s -X POST "https://api.telegram.org/bot${BOT_TOKEN}/sendDocument" -F document=@"full-build.log" -F caption="Full Build Log - $ZIPNAME" -F chat_id="$CHAT_ID" > /dev/null
-}
-
-function upload_defconfig() {
-    [ -f out/full_defconfig ] || return
-    cp out/full_defconfig mido_defconfig
-    curl -s -X POST "https://api.telegram.org/bot${BOT_TOKEN}/sendDocument" -F document=@"mido_defconfig" -F caption="Full Defconfig - $ZIPNAME" -F chat_id="$CHAT_ID" > /dev/null
-    rm -f mido_defconfig
-}
-
 # ============================
 # Eksekusi utama
 # ============================
