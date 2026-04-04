@@ -68,7 +68,7 @@ echo -e "\n$red[!] clang Dir Not Found!!!\033[0m \n"
 sleep 2
 echo -e "$green[+] Wait.. Cloning clang...\033[0m \n"
 sleep 2
-wget -q https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/105aba85d97a53d364585ca755752dae054b49e8/clang-r584948b.tar.gz -O clang.tar.gz
+wget -q https://github.com/XSans0/WeebX-Clang/releases/download/WeebX-Clang-20.0.0git-release/WeebX-Clang-20.0.0git.tar.gz -O clang.tar.gz
     rm -rf $COMPILERDIR 
     mkdir $COMPILERDIR 
     tar -xvf clang.tar.gz -C $COMPILERDIR
@@ -164,15 +164,16 @@ MAKE="./makeparallel"
     O=out \
     ARCH=arm64 \
     LLVM=1 \
-    LLVM_IAS=1 \
+    CC="clang" \
+    CXX="clang++" \
+    HOSTCC="clang" \
+    HOSTCXX="clang++" \
     AR=llvm-ar \
+    AS=llvm-as \
     NM=llvm-nm \
-    LD=ld.lld \
     OBJCOPY=llvm-objcopy \
     OBJDUMP=llvm-objdump \
     STRIP=llvm-strip \
-    CC=clang \
-    DTC_EXT=dtc \
     CROSS_COMPILE=aarch64-linux-gnu- \
     CROSS_COMPILE_ARM32=arm-linux-gnueabi- 2>&1 | tee full-build.log
 
